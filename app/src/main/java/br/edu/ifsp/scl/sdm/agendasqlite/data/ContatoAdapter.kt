@@ -11,6 +11,12 @@ import br.edu.ifsp.scl.sdm.agendasqlite.model.Contato
 class ContatoAdapter(val contatosLista: ArrayList<Contato>) :
     RecyclerView.Adapter<ContatoAdapter.ContatoViewHolder>() {
 
+    var listener: ContatoListener? = null
+
+    fun setClickListener(listener: ContatoListener){
+        this.listener = listener
+    }
+
     override fun onCreateViewHolder(
         parent: ViewGroup,
         viewType: Int
@@ -32,6 +38,16 @@ class ContatoAdapter(val contatosLista: ArrayList<Contato>) :
     inner class ContatoViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val nomeVH = view.findViewById<TextView>(R.id.nome)
         val foneVH = view.findViewById<TextView>(R.id.fone)
+
+        init {
+            view.setOnClickListener{
+                listener?.onItemClick(adapterPosition)
+            }
+        }
+    }
+
+    interface ContatoListener{
+        fun onItemClick(pos:Int)
     }
 
 }
