@@ -1,10 +1,8 @@
 package br.edu.ifsp.scl.sdm.agendasqlite.activity
 
 import android.os.Bundle
-import android.view.ContextMenu
 import android.view.Menu
 import android.view.MenuItem
-import android.view.View
 import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -39,7 +37,7 @@ class DetalheActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         val db = DatabaseHelper(this)
 
-        if (item.itemId == R.id.action_alterarContato){
+        if (item.itemId == R.id.action_alterarContato) {
             // Aqui o usuário pode ter alterado alguma informação
             val nome = findViewById<EditText>(R.id.editTextNome).text.toString()
             val fone = findViewById<EditText>(R.id.editTextTelefone).text.toString()
@@ -49,14 +47,14 @@ class DetalheActivity : AppCompatActivity() {
             contato.fone = fone
             contato.email = email
 
-            if (db.atualizarContato(contato) > 0){
+            if (db.atualizarContato(contato) > 0) {
                 Toast.makeText(this, "Informações alteradas", Toast.LENGTH_LONG).show()
             }
             finish()
         }
 
-        if (item.itemId == R.id.action_excluirContato){
-            if (db.apagarContato(contato) > 0){
+        if (item.itemId == R.id.action_excluirContato) {
+            if (db.apagarContato(contato) > 0) {
                 Toast.makeText(this, "Contato Excluído", Toast.LENGTH_LONG).show()
             }
             finish()

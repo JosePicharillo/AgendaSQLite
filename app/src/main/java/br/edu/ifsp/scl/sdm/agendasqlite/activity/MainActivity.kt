@@ -38,7 +38,7 @@ class MainActivity : AppCompatActivity() {
         recyclerview.layoutManager = LinearLayoutManager(this)
         recyclerview.adapter = contatoAdapter
 
-        var listener = object :ContatoAdapter.ContatoListener{
+        var listener = object : ContatoAdapter.ContatoListener {
             override fun onItemClick(pos: Int) {
                 val intent = Intent(applicationContext, DetalheActivity::class.java)
                 val c = contatoAdapter.contatosLista[pos]

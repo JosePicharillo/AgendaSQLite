@@ -13,7 +13,7 @@ class ContatoAdapter(val contatosLista: ArrayList<Contato>) :
 
     var listener: ContatoListener? = null
 
-    fun setClickListener(listener: ContatoListener){
+    fun setClickListener(listener: ContatoListener) {
         this.listener = listener
     }
 
@@ -40,14 +40,14 @@ class ContatoAdapter(val contatosLista: ArrayList<Contato>) :
         val foneVH = view.findViewById<TextView>(R.id.fone)
 
         init {
-            view.setOnClickListener{
+            view.setOnClickListener {
                 listener?.onItemClick(adapterPosition)
             }
         }
     }
 
-    interface ContatoListener{
-        fun onItemClick(pos:Int)
+    interface ContatoListener {
+        fun onItemClick(pos: Int)
     }
 
 }

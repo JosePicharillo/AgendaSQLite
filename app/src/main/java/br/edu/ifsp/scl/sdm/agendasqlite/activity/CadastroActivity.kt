@@ -30,7 +30,7 @@ class CadastroActivity : AppCompatActivity() {
             val email = findViewById<EditText>(R.id.editTextEmail).text.toString()
 
             val c = Contato(null, nome, fone, email)
-            if (db.inserirContato(c) > 0){
+            if (db.inserirContato(c) > 0) {
                 Toast.makeText(this, "Contato Inserido", Toast.LENGTH_LONG).show()
             }
             finish()
